@@ -9,18 +9,18 @@ tags:
     - Syntax
 ---
 
-# Fluent Python for Problem Solving
+# I/O
 
-## I/O
+## `input()`, `map()`
 
-### `input()`, `map()`
 ```python
 s = input()  # Read a line
 a, b, c = map(int, input().split())  # Read a line, split the line by whitespaces, and map each one to int
 a = list(map(int, input().split()))  # Make a list
 ```
 
-### `sys.stdin.readline()`
+## `sys.stdin.readline()`
+
 For fast input read, use `sys.stdin.readline()`
 ```python
 import sys
@@ -37,13 +37,15 @@ v = [[True for _ in range(10)] for _ in range(10)]  # Yes
 s = input().rstrip()  # NOTE: `sys.stdin.readline()` also reads newline character, so you should strip it out if you don't need the character
 ```
 
-### f-string
+## f-string
+
 ```python
 n = 1000
 print(f"The answer is {n}!")
 ```
 
-### Unpacking
+## Unpacking
+
 ```python
 a = [1, 2, 3]
 
@@ -56,7 +58,8 @@ for elem in a:
 print(*a)  # 1 2 3
 ```
 
-### File I/O
+## File I/O
+
 ```python
 import sys
 
@@ -64,7 +67,8 @@ sys.stdin = open("input.txt", "r")
 ```
 
 
-## Loop
+# Loop
+
 ```python
 # Case 1
 s = 0
@@ -76,7 +80,8 @@ s = sum(i for i in range(1, 10 + 1))
 ```
 
 
-## Iterate through Array
+# Iterate through Array
+
 ```python
 a = ['A', 'B', 'C']
 for element in a:
@@ -84,7 +89,8 @@ for element in a:
 ```
 
 
-## Generics
+# Generics
+
 ```python
 # Case 1
 def are_equal(a, b):
@@ -105,7 +111,8 @@ are_equal(10, 10.0)
 ```
 
 
-## Struct
+# Struct
+
 ```python
 from dataclasses import dataclass
 
@@ -121,7 +128,8 @@ apple.price = 10
 ```
 
 
-## Class
+# Class
+
 ```python
 from dataclasses import dataclass
 
@@ -138,7 +146,8 @@ print(rect.area())
 ```
 
 
-## Inheritance
+# Inheritance
+
 ```python
 from dataclasses import dataclass
 
@@ -159,9 +168,10 @@ tom.move(34)
 ```
 
 
-## Built-in Functions
+# Built-in Functions
 
-### `index()`
+## `index()`
+
 ```python
 operators = ['-', '*', '-', '+']
 i = operators.index('-')  # 0
@@ -171,7 +181,8 @@ del operators[i]
 i = operators.index('-')  # 1
 ```
 
-### `enumerate()`
+## `enumerate()`
+
 ```python
 a = ['a', 'b', 'c']
 for i, v in enumerate(a):
@@ -184,7 +195,8 @@ for i, v in enumerate(a):
 '''
 ```
 
-### `eval()`
+## `eval()`
+
 ```python
 x = 1
 eval('x+1')  # 2
@@ -192,7 +204,8 @@ eval('x+1')  # 2
 eval("100-200*300-500+20")  # -60380
 ```
 
-### `zip()`
+## `zip()`
+
 Make an iterator that aggregates elements from each of the iterables.
 ```python
 a = [1, 2, 3]
@@ -207,17 +220,19 @@ for i, j in zip(a, b):
 '''
 ```
 
-## Libraries
+# Libraries
 
-### collections
+## collections
 
-#### Counter
+### Counter
+
 ```python
 from collections import Counter
 a = Counter([1, 1, 2, 2, 2])  # Counter({1: 2, 2: 3})
 ```
 
-##### "-" Operation
+#### "-" Operation
+
 ```python
 from collections import Counter
 
@@ -227,7 +242,8 @@ b = Counter([1, 2, 2, 3])
 print(a - b)  # Counter({1: 1, 2: 1})
 ```
 
-#### deque
+### deque
+
 ```python
 from collections import deque
 
@@ -235,9 +251,10 @@ queue = deque([1, 2, 3, 4, 5])
 queue.popleft()  # O(1)
 ```
 
-### itertools
+## itertools
 
-#### permutations
+### permutations
+
 ```python
 from itertools import permutations
 
@@ -246,7 +263,8 @@ p = list(permutations(a))  # [(1, 2, 3), (1, 3, 2), (2, 1, 3), (2, 3, 1), (3, 1,
 
 ```
 
-#### combinations
+### combinations
+
 ```python
 from itertools import combinations
 
@@ -254,12 +272,16 @@ a = [1, 2, 3]
 c = list(combinations(a, 2))  # [(1, 2), (1, 3), (2, 3)]
 ```
 
-### functools
+## functools
 
-#### `cmp_to_key()`
+### `cmp_to_key()`
+
 ```python
-# Your goal is to sort the give numbers to ["9", "5", "34", "3", "30'],
-# not ["9", "5", "34", "30", "3'] since 9534330 is larger than 9534303.
+
+###### Your goal is to sort the give numbers to ["9", "5", "34", "3", "30'],
+
+###### not ["9", "5", "34", "30", "3'] since 9534330 is larger than 9534303.
+
 numbers = ["34", "3", "30", "9", "5"]
 
 from functools import cmp_to_key
@@ -279,9 +301,10 @@ def compare(a, b):
 numbers = sorted(numbers, key=cmp_to_key(compare), reverse=True)  # ["9", "5", "34", "3", "30"]
 ```
 
-### re
+## re
 
-#### `sub()`
+### `sub()`
+
 ```python
 from re import sub
 
@@ -290,7 +313,8 @@ s = sub("[^a-z0-9-_.]", "", s)  # "...a..y.abcdefghijklm"
 s = sub("[.]+", ".", s)  # ".a.y.abcdefghijklm"
 ```
 
-#### `findall()`
+### `findall()`
+
 ```python
 from re import findall
 
@@ -299,7 +323,8 @@ operators = findall("[*+-]+", expression)  # ['-', '*', '-', '+']
 operands = findall("[0-9]+", expression)  # ['100', '200', '300', '500', '20']
 ```
 
-#### `split()`
+### `split()`
+
 ```python
 from re import split
 
@@ -308,14 +333,16 @@ operands = split("[*+-]+", expression)  # ['100', '200', '300', '500', '20']
 ```
 
 
-## Error
+# Error
 
-### Recursion Error
+## Recursion Error
 
-#### Solution1
+### Solution1
+
 Use iteration instead of recursion.
 
-#### Solution2
+### Solution2
+
 Increase recursion limit.
 ```python
 import sys
