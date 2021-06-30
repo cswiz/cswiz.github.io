@@ -37,13 +37,6 @@ v = [[True for _ in range(10)] for _ in range(10)]  # Yes
 s = input().rstrip()  # NOTE: `sys.stdin.readline()` also reads newline character, so you should strip it out if you don't need the character
 ```
 
-## f-string
-
-```python
-n = 1000
-print(f"The answer is {n}!")
-```
-
 ## Unpacking
 
 ```python
@@ -78,6 +71,13 @@ l = list(s)  # ['a', 'b', 'c']
 
 # Conversion from list to string
 converted_string = ''.join(l)  # "abc"
+```
+
+## f-string
+
+```python
+n = 1000
+print(f"The answer is {n}!")
 ```
 
 
@@ -279,6 +279,7 @@ for i, j in zip(a, b):
 '''
 ```
 
+
 # Libraries
 
 ## collections
@@ -330,6 +331,32 @@ from itertools import combinations
 a = [1, 2, 3]
 c = list(combinations(a, 2))  # [(1, 2), (1, 3), (2, 3)]
 ```
+
+### `cycle()`
+```python
+from itertools import cycle
+
+c1 = cycle([1, 2, 3])
+c2 = cycle([1, 2, 3, 4])
+c3 = cycle([1, 2, 3, 4, 5])
+
+for _ in range(10):
+    print(next(c1), next(c2), next(c3))
+
+"""
+1 1 1
+2 2 2
+3 3 3
+1 4 4
+2 1 5
+3 2 1
+1 3 2
+2 4 3
+3 1 4
+1 2 5
+"""
+```
+
 
 ## functools
 
