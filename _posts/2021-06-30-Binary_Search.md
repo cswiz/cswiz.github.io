@@ -7,6 +7,7 @@ tags:
     - Python
     - Algorithms
     - Problem Solving
+use_math: true
 ---
 
 # Idea
