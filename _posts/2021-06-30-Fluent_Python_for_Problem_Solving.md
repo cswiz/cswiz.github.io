@@ -80,6 +80,20 @@ n = 1000
 print(f"The answer is {n}!")
 ```
 
+## `startswith()`, `endswith()`
+```python
+a = "0101234"
+b = "0101345"
+c = "0101"
+d = "234"
+
+a.startswith(b)  # False
+b.startswith(a)  # False
+a.startswith(c)  # True
+b.startswith(c)  # True
+a.endswith(d)  # True
+b.endswith(d)  # False
+```
 
 # List
 
@@ -413,6 +427,7 @@ from re import split
 
 expression = "100-200*300-500+20"
 operands = split("[*+-]+", expression)  # ['100', '200', '300', '500', '20']
+all_tokens = split("([*+-]+)", expression)  # ['100', '-', '200', '*', '300', '-', '500', '+', '20']
 ```
 
 
