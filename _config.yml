@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "MY BLOG"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Minkook Kim"
+name                     : "cswiz"
 description              : "An amazing website."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -96,7 +96,7 @@ analytics:
 author:
   name             : "Minkook Kim"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **AMAZING** person."
+  bio              : "Math, Science, and Technology"
   location         : "Somewhere"
   email            :
   links:
