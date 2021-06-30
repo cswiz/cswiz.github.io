@@ -67,6 +67,76 @@ sys.stdin = open("input.txt", "r")
 ```
 
 
+# String
+
+```python
+# Definition
+s = "abc"
+
+# Conversion to list
+l = list(s)  # ['a', 'b', 'c']
+
+# Conversion from list to string
+converted_string = ''.join(l)  # "abc"
+```
+
+
+# List
+
+##  `index()`
+
+```python
+operators = ['-', '*', '-', '+']
+i = operators.index('-')  # 0
+i = operators.index('-')  # 0
+
+del operators[i]
+i = operators.index('-')  # 1
+```
+
+##  `count()`
+```python
+a = [1, 2, 3, 3, 3, 3, 2, 5, 6, 10, 5, 4]
+
+a.count(3)  # 4
+a.count(2)  # 2
+a.count(5)  # 2
+```
+
+
+# Set
+
+```python
+# Definition
+s1 = set([1, 2, 3])  # {1, 2, 3}
+s2 = set("Hello")  # {'e', 'H', 'l', 'o'}
+
+# Conversion to list
+l1 = list(s1)  # [1, 2, 3]
+l2 = list(s2)  # ['e', 'H', 'l', 'o']
+
+# Conversion to tuple
+t1 = tuple(s1)  # (1, 2, 3)
+t2 = tuple(s2)  # ('e', 'H', 'l', 'o')
+
+# Add one element
+s1.add(4)  # [1, 2, 3, 4]
+# Remove one element
+s1.remove(4)  # [1, 2, 3]
+# Accept another iterable
+s1.update([4, 5, 6])  # [1, 2, 3, 4, 5, 6]
+
+s3 = set([4, 5, 6, 7, 8, 9])
+# Intersection
+intersection = s1 & s3  # {4, 5, 6}
+# Union
+union = s1 | s3  # {1, 2, 3, 4, 5, 6, 7, 8, 9}
+# Difference
+difference1 = s1 - s3  # {1, 2, 3}
+differecne2 = s3 - s1  # {8, 9, 7}
+```
+
+
 # Loop
 
 ```python
@@ -170,17 +240,6 @@ tom.move(34)
 
 # Built-in Functions
 
-## `index()`
-
-```python
-operators = ['-', '*', '-', '+']
-i = operators.index('-')  # 0
-i = operators.index('-')  # 0
-
-del operators[i]
-i = operators.index('-')  # 1
-```
-
 ## `enumerate()`
 
 ```python
@@ -277,14 +336,11 @@ c = list(combinations(a, 2))  # [(1, 2), (1, 3), (2, 3)]
 ### `cmp_to_key()`
 
 ```python
-
-###### Your goal is to sort the give numbers to ["9", "5", "34", "3", "30'],
-
-###### not ["9", "5", "34", "30", "3'] since 9534330 is larger than 9534303.
-
-numbers = ["34", "3", "30", "9", "5"]
-
 from functools import cmp_to_key
+
+# Your goal is to sort the give numbers to ["9", "5", "34", "3", "30'],
+# not ["9", "5", "34", "30", "3'] since 9534330 is larger than 9534303.
+numbers = ["34", "3", "30", "9", "5"]
 
 
 def compare(a, b):
