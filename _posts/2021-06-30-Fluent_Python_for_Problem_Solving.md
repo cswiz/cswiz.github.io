@@ -341,7 +341,7 @@ b = Counter([1, 2, 2, 3])  # Counter({1: 1, 2: 2, 3: 1})
 a + b  # Counter({2: 5, 1: 3, 3: 1})
 # Subtraction
 a - b  # Counter({1: 1, 2: 1})
-# Interaction
+# Intersection
 a & b  # Counter({2: 2, 1: 1})
 # Union
 a | b  # Counter({2: 3, 1: 2, 3: 1})
