@@ -298,11 +298,57 @@ for i, j in zip(a, b):
 
 ## collections
 
-### Counter
+### `defaultdict`
+```python
+from collections import defaultdict
+
+def def_value():
+"""Function to return a default values for keys that is not present."""
+    return "Not Present"
+      
+# Defining the dict
+d = defaultdict(def_value)  # or defaultdict(lambda: "Not Present")
+d["a"] = 1
+d["b"] = 2
+  
+print(d["a"])  # 1
+print(d["b"])  # 2
+print(d["c"])  # "Not Present"
+
+# Examples
+a = defaultdict(int)
+a[10] += 100
+a[10] += 200 # defaultdict({10: 300})
+
+a = defaultdict(list)
+a[10].append(100)
+a[10].append(200)  # defaultdict({10: [100, 200]})
+
+a = defaultdict(set)
+a[10].add(100)
+a[10].add(200)  # defaultdict({10: {200, 100})}
+```
+
+### `Counter`
 
 ```python
 from collections import Counter
+
 a = Counter([1, 1, 2, 2, 2])  # Counter({1: 2, 2: 3})
+b = Counter([1, 2, 2, 3])  # Counter({1: 1, 2: 2, 3: 1})
+
+# Addition
+a + b  # Counter({2: 5, 1: 3, 3: 1})
+# Subtraction
+a - b  # Counter({1: 1, 2: 1})
+# Interaction
+a & b  # Counter({2: 2, 1: 1})
+# Union
+a | b  # Counter({2: 3, 1: 2, 3: 1})
+
+# Sort
+sorted(a)  # [1, 2]
+sorted(b)  # [1, 2, 3]
 ```
 
 #### "-" Operation
@@ -311,12 +357,9 @@ a = Counter([1, 1, 2, 2, 2])  # Counter({1: 2, 2: 3})
 from collections import Counter
 
 a = Counter([1, 1, 2, 2, 2])
-b = Counter([1, 2, 2, 3])
-
-print(a - b)  # Counter({1: 1, 2: 1})
 ```
 
-### deque
+### `deque`
 
 ```python
 from collections import deque
