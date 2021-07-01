@@ -448,7 +448,7 @@ def compare(a, b):
     else:
         return 0
 
-numbers = sorted(numbers, key=cmp_to_key(compare), reverse=True)  # ["9", "5", "34", "3", "30"]
+numbers.sort(key=cmp_to_key(compare), reverse=True)  # ["9", "5", "34", "3", "30"]
 ```
 
 ### re
