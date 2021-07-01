@@ -9,9 +9,9 @@ tags:
     - Syntax
 ---
 
-# I/O
+## I/O
 
-## `input()`, `map()`
+### `input()`, `map()`
 
 ```python
 s = input()  # Read a line
@@ -19,7 +19,7 @@ a, b, c = map(int, input().split())  # Read a line, split the line by whitespace
 a = list(map(int, input().split()))  # Make a list
 ```
 
-## `sys.stdin.readline()`
+### `sys.stdin.readline()`
 
 For fast input read, use `sys.stdin.readline()`
 ```python
@@ -37,7 +37,7 @@ v = [[True for _ in range(10)] for _ in range(10)]  # Yes
 s = input().rstrip()  # NOTE: `sys.stdin.readline()` also reads newline character, so you should strip it out if you don't need the character
 ```
 
-## Unpacking
+### Unpacking
 
 ```python
 a = [1, 2, 3]
@@ -51,7 +51,7 @@ for elem in a:
 print(*a)  # 1 2 3
 ```
 
-## File I/O
+### File I/O
 
 ```python
 import sys
@@ -60,9 +60,10 @@ sys.stdin = open("input.txt", "r")
 ```
 
 
-# String
+## String
 
 ```python
+
 # Definition
 s = "abc"
 
@@ -73,14 +74,15 @@ l = list(s)  # ['a', 'b', 'c']
 converted_string = ''.join(l)  # "abc"
 ```
 
-## f-string
+### f-string
 
 ```python
 n = 1000
 print(f"The answer is {n}!")
 ```
 
-## `startswith()`, `endswith()`
+### `startswith()`, `endswith()`
+
 ```python
 a = "0101234"
 b = "0101345"
@@ -95,9 +97,9 @@ a.endswith(d)  # True
 b.endswith(d)  # False
 ```
 
-# List
+## List
 
-##  `index()`
+### `index()`
 
 ```python
 operators = ['-', '*', '-', '+']
@@ -108,7 +110,8 @@ del operators[i]
 i = operators.index('-')  # 1
 ```
 
-##  `count()`
+### `count()`
+
 ```python
 a = [1, 2, 3, 3, 3, 3, 2, 5, 6, 10, 5, 4]
 
@@ -118,9 +121,10 @@ a.count(5)  # 2
 ```
 
 
-# Set
+## Set
 
 ```python
+
 # Definition
 s1 = set([1, 2, 3])  # {1, 2, 3}
 s2 = set("Hello")  # {'e', 'H', 'l', 'o'}
@@ -135,25 +139,31 @@ t2 = tuple(s2)  # ('e', 'H', 'l', 'o')
 
 # Add one element
 s1.add(4)  # [1, 2, 3, 4]
+
 # Remove one element
 s1.remove(4)  # [1, 2, 3]
+
 # Accept another iterable
 s1.update([4, 5, 6])  # [1, 2, 3, 4, 5, 6]
 
 s3 = set([4, 5, 6, 7, 8, 9])
+
 # Intersection
 intersection = s1 & s3  # {4, 5, 6}
+
 # Union
 union = s1 | s3  # {1, 2, 3, 4, 5, 6, 7, 8, 9}
+
 # Difference
 difference1 = s1 - s3  # {1, 2, 3}
 differecne2 = s3 - s1  # {8, 9, 7}
 ```
 
 
-# Loop
+## Loop
 
 ```python
+
 # Case 1
 s = 0
 for i in range(1, 10 + 1):
@@ -164,7 +174,7 @@ s = sum(i for i in range(1, 10 + 1))
 ```
 
 
-# Iterate through Array
+## Iterate through Array
 
 ```python
 a = ['A', 'B', 'C']
@@ -173,9 +183,10 @@ for element in a:
 ```
 
 
-# Generics
+## Generics
 
 ```python
+
 # Case 1
 def are_equal(a, b):
     return a == b
@@ -195,7 +206,7 @@ are_equal(10, 10.0)
 ```
 
 
-# Struct
+## Struct
 
 ```python
 from dataclasses import dataclass
@@ -212,7 +223,7 @@ apple.price = 10
 ```
 
 
-# Class
+## Class
 
 ```python
 from dataclasses import dataclass
@@ -230,7 +241,7 @@ print(rect.area())
 ```
 
 
-# Inheritance
+## Inheritance
 
 ```python
 from dataclasses import dataclass
@@ -252,9 +263,9 @@ tom.move(34)
 ```
 
 
-# Built-in Functions
+## Built-in Functions
 
-## `enumerate()`
+### `enumerate()`
 
 ```python
 a = ['a', 'b', 'c']
@@ -268,7 +279,7 @@ for i, v in enumerate(a):
 '''
 ```
 
-## `eval()`
+### `eval()`
 
 ```python
 x = 1
@@ -277,7 +288,7 @@ eval('x+1')  # 2
 eval("100-200*300-500+20")  # -60380
 ```
 
-## `zip()`
+### `zip()`
 
 Make an iterator that aggregates elements from each of the iterables.
 ```python
@@ -294,11 +305,12 @@ for i, j in zip(a, b):
 ```
 
 
-# Libraries
+## Libraries
 
-## collections
+### collections
 
-### `defaultdict`
+#### `defaultdict`
+
 ```python
 from collections import defaultdict
 
@@ -329,7 +341,7 @@ a[10].add(100)
 a[10].add(200)  # defaultdict({10: {200, 100})}
 ```
 
-### `Counter`
+#### `Counter`
 
 ```python
 from collections import Counter
@@ -339,10 +351,13 @@ b = Counter([1, 2, 2, 3])  # Counter({1: 1, 2: 2, 3: 1})
 
 # Addition
 a + b  # Counter({2: 5, 1: 3, 3: 1})
+
 # Subtraction
 a - b  # Counter({1: 1, 2: 1})
+
 # Intersection
 a & b  # Counter({2: 2, 1: 1})
+
 # Union
 a | b  # Counter({2: 3, 1: 2, 3: 1})
 
@@ -351,15 +366,7 @@ sorted(a)  # [1, 2]
 sorted(b)  # [1, 2, 3]
 ```
 
-#### "-" Operation
-
-```python
-from collections import Counter
-
-a = Counter([1, 1, 2, 2, 2])
-```
-
-### `deque`
+#### `deque`
 
 ```python
 from collections import deque
@@ -368,9 +375,10 @@ queue = deque([1, 2, 3, 4, 5])
 queue.popleft()  # O(1)
 ```
 
-## itertools
 
-### permutations
+### itertools
+
+#### `permutations`
 
 ```python
 from itertools import permutations
@@ -380,7 +388,7 @@ p = list(permutations(a))  # [(1, 2, 3), (1, 3, 2), (2, 1, 3), (2, 3, 1), (3, 1,
 
 ```
 
-### combinations
+#### `combinations`
 
 ```python
 from itertools import combinations
@@ -389,7 +397,8 @@ a = [1, 2, 3]
 c = list(combinations(a, 2))  # [(1, 2), (1, 3), (2, 3)]
 ```
 
-### `cycle()`
+#### `cycle()`
+
 ```python
 from itertools import cycle
 
@@ -415,15 +424,16 @@ for _ in range(10):
 ```
 
 
-## functools
+### functools
 
-### `cmp_to_key()`
+#### `cmp_to_key()`
 
 ```python
 from functools import cmp_to_key
 
 # Your goal is to sort the give numbers to ["9", "5", "34", "3", "30'],
 # not ["9", "5", "34", "30", "3'] since 9534330 is larger than 9534303.
+
 numbers = ["34", "3", "30", "9", "5"]
 
 
@@ -441,9 +451,9 @@ def compare(a, b):
 numbers = sorted(numbers, key=cmp_to_key(compare), reverse=True)  # ["9", "5", "34", "3", "30"]
 ```
 
-## re
+### re
 
-### `sub()`
+#### `sub()`
 
 ```python
 from re import sub
@@ -453,7 +463,7 @@ s = sub("[^a-z0-9-_.]", "", s)  # "...a..y.abcdefghijklm"
 s = sub("[.]+", ".", s)  # ".a.y.abcdefghijklm"
 ```
 
-### `findall()`
+#### `findall()`
 
 ```python
 from re import findall
@@ -463,7 +473,7 @@ operators = findall("[*+-]+", expression)  # ['-', '*', '-', '+']
 operands = findall("[0-9]+", expression)  # ['100', '200', '300', '500', '20']
 ```
 
-### `split()`
+#### `split()`
 
 ```python
 from re import split
@@ -474,15 +484,15 @@ all_tokens = split("([*+-]+)", expression)  # ['100', '-', '200', '*', '300', '-
 ```
 
 
-# Error
+## Error
 
-## Recursion Error
+### Recursion Error
 
-### Solution1
+#### Solution1
 
 Use iteration instead of recursion.
 
-### Solution2
+#### Solution2
 
 Increase recursion limit.
 ```python
